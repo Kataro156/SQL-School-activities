@@ -1,0 +1,27 @@
+USE LABDB;
+BEGIN
+
+DECLARE @ID INT = 1;
+DECLARE @LASTNAME VARCHAR(30);
+DECLARE @FIRSTNAME VARCHAR(30);
+DECLARE @AGE VARCHAR(30);
+DECLARE @GENDER VARCHAR(30);
+DECLARE @LEVEL VARCHAR(30);
+
+WHILE @ID <= 10
+BEGIN
+    SELECT 
+        @LASTNAME = LASTNAME,
+        @FIRSTNAME = FIRSTNAME,
+        @AGE = AGE,
+        @GENDER = GENDER,
+        @LEVEL = LEVEL
+    FROM RECORDS
+    WHERE ID = @ID;
+
+    PRINT 'ID: ' + CAST(@ID AS VARCHAR) + ' ' + 'Name: ' + @FIRSTNAME + ' ' + @LASTNAME + ' ' + 'Age: ' + @AGE + ' ' + 'Gender: ' + @GENDER + '' + 'Level: ' + @LEVEL;
+
+    SET @ID = @ID + 1;
+END
+
+END
